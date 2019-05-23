@@ -71,6 +71,15 @@ setup(name='jsonnet',
       cmdclass={
           'build_ext': BuildJsonnetExt,
       },
+      package_dir={'': 'python'},
+      packages = [
+          "_jsonnetext"
+      ],
       ext_modules=[jsonnet_ext],
       test_suite="python._jsonnet_test",
+      entry_points={
+        'console_scripts': [
+            'jsonnet=_jsonnetext.cli:main'
+        ]
+    },
 )
